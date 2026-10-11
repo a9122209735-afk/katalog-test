@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="ПРОМБУРГ">
+  <!-- Знак: монограмма ПБ в шестиграннике -->
+  <g id="mark">
+    <polygon points="116,60 88,108.5 32,108.5 4,60 32,11.5 88,11.5" fill="#12324A"/>
+    <path d="M30 84V38H54V84" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="miter"/>
+    <path d="M94 38H68V84H82A12.5 12.5 0 0 0 82 59H68" fill="none" stroke="#F26A21" stroke-width="9" stroke-linejoin="miter"/>
+  </g>
+  <g font-family="'Segoe UI','Arial',sans-serif" font-weight="700">
+    <text x="136" y="72" font-size="56" letter-spacing="3" fill="#12324A">ПРОМБУРГ</text>
+    <rect x="138" y="84" width="46" height="5" fill="#F26A21"/>
+    <text x="196" y="92" font-size="15.5" font-weight="600" letter-spacing="4.4" fill="#5B6B78">ОПОРЫ ТРУБОПРОВОДОВ</text>
+  </g>
+</svg>

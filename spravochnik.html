@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Каталог ПРОМБУРГ: опоры, детали трубопроводов, компенсаторы — справочник инженера</title>
+<meta name="description" content="Справочник ООО «ПРОМБУРГ»: подбор опор, деталей трубопроводов и компенсаторов по наружному диаметру и нагрузке, таблицы исполнений, 3D-модели.">
+<link rel="icon" href="assets/brand/logo-mark.svg">
+<link rel="stylesheet" href="kat.css?v=2610112245">
+<style>
+/* Вид «Справочник инженера»: вход по параметрам. Белый, тёмно-синий, плотная вёрстка, нумерованные разделы. */
+:root{--font:'Segoe UI','IBM Plex Sans',Arial,sans-serif;--mono:Consolas,'Cascadia Mono',monospace;
+  --bg:#FFFFFF;--panel:#FFFFFF;--ink:#12324A;--mute:#5B6B78;--line:#DDE3E8;--line-2:#B4C0CA;
+  --acc:#F26A21;--acc-ink:#FFFFFF;--link:#0B5CAD;--sel:#EEF4F9;--load:#FFF6EF;--th:#12324A;--th-ink:#FFFFFF;
+  --stage:linear-gradient(#F7F9FB,#E9EEF2);--logo-bg:#12324A;--logo-fg:#FFFFFF;--radius:3px;--cover:#12324A;--cover-ink:#FFFFFF;--wm-page:.022}
+body{font-size:14px;display:grid;grid-template-columns:292px minmax(0,1fr);min-height:100vh}
+body.print{display:block}
+.side{position:sticky;top:0;height:100vh;overflow:auto;background:#12324A;color:#DCE6EE;padding:18px 0 40px;--logo-bg:#FFFFFF;--logo-fg:#12324A;--mute:#9FB3C4}
+.side .logo{padding:0 18px 16px;color:#fff}
+.side h5{margin:16px 18px 6px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#7F97AB;font-weight:700}
+.side a.n{display:grid;grid-template-columns:34px 1fr;align-items:baseline;padding:6px 18px;text-decoration:none;font-size:13.5px;border-left:4px solid transparent}
+.side a.n b{font-family:var(--mono);font-size:12px;color:#7F97AB}
+.side a.n:hover{background:#1A4160}
+.side a.n.on{background:#1A4160;border-left-color:var(--c,var(--acc));color:#fff}
+.side a.n small{grid-column:2;color:#7F97AB;font-size:11.5px}
+.side .sub{display:none;padding:2px 0 8px;background:#0E2A3F}
+.side a.n.on+.sub{display:block}
+.side .sub a{display:grid;grid-template-columns:44px 1fr;padding:3px 18px 3px 22px;font-size:12.5px;text-decoration:none;color:#B9C9D6}
+.side .sub a b{font-family:var(--mono);font-size:11px;color:#6F8799}
+.side .sub a:hover,.side .sub a.on{color:#fff}
+.side .sub a.on b{color:var(--acc)}
+.bar{position:sticky;top:0;z-index:20;display:flex;gap:14px;align-items:center;padding:10px 26px;background:#fff;border-bottom:2px solid #12324A}
+.bar .search{max-width:none}
+.bar .pg{font-family:var(--mono);font-weight:700;font-size:13px;white-space:nowrap}
+.in{padding:22px 26px 50px;max-width:1240px}
+.page{margin:0;padding:22px 26px 50px;max-width:1240px}
+h1{font-size:26px}
+.kicker i{display:inline-block;width:10px;height:10px;margin-right:8px;border-radius:2px;vertical-align:-1px}
+.sec{margin-top:26px}
+.sec>h2{font-size:15px;padding:7px 10px;background:var(--sel);border-left:4px solid #12324A;margin-bottom:12px}
+.sec>h2 b{font-family:var(--mono);margin-right:10px;color:var(--mute)}
+.filter{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;padding:14px;border:1px solid var(--line);background:var(--sel)}
+.filter label{font-size:12px;color:var(--mute);font-weight:600}
+.filter select,.filter input{display:block;margin-top:3px;padding:7px 9px;border:1px solid var(--line-2);border-radius:3px;background:#fff;min-width:150px;max-width:300px;font-size:15px}
+.filter .res{margin-left:auto;font-size:13px;color:var(--mute)}
+.c-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}
+.c-right{position:sticky;top:70px;display:grid;gap:14px}
+.c-right .v3d{height:300px;min-height:300px}
+.c-right .v3d-hint{display:none}
+.c-right .v3d.nomodel{height:170px;min-height:170px}
+.c-topline{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.about{grid-template-columns:1fr !important;gap:12px}
+.facts{font-size:13px}
+body.print .c-grid{grid-template-columns:minmax(0,1fr) 56mm;gap:10px}
+body.print .c-right{min-width:0;gap:8px;position:static}
+body.print .c-right .facts{display:block}
+body.print .c-right .facts dt{margin-top:4px;font-weight:700}
+body.print .c-right .v3d{height:auto;min-height:0}
+body.print .c-topline{margin-bottom:8px}
+body.print .tbl{font-size:7.5pt}
+body.print .tbl th{font-size:7pt}
+body.print .tbl td,body.print .tbl th{padding:3px 4px}
+body.print .tbl .pb{font-size:7pt}
+body.print .in,body.print .page{padding:0;max-width:none}
+body.print .sec{margin-top:10px}
+body.print .files{display:none}
+@media(max-width:1000px){body{display:block}.side{position:static;height:auto;max-height:46vh}.c-grid{grid-template-columns:1fr}.c-right{position:static}.c-topline{flex-direction:column}}
+</style>
+</head>
+<body>
+<aside class="side">
+  <span data-ui="logo"></span>
+  <h5>Подбор</h5>
+  <a class="n" href="#/" data-nav="home"><b>0</b>Фильтр и матрицы</a>
+  <h5>Разделы</h5>
+  <div id="side-groups"></div>
+  <h5>Справка</h5>
+  <a class="n" href="#/faq" data-nav="faq"><b>F</b>Частые вопросы</a>
+  <a class="n" href="#/glossary" data-nav="glossary"><b>G</b>Словарь</a>
+  <a class="n" href="#/spec" data-nav="spec"><b>S</b>Заявка</a>
+</aside>
+<div>
+  <div class="bar"><span class="pg" id="pg">0</span><span data-ui="search"></span><span data-ui="views"></span><span data-ui="specBtn"></span></div>
+  <main id="view"></main>
+<noscript><p style="padding:20px">Каталог работает со скриптами. Без них доступен <a href="t/index.html">список всех типов с таблицами исполнений</a>.</p></noscript>
+  <div class="in"><span data-ui="contacts"></span></div>
+</div>
+
+<script src="data/index.js?v=2610112245"></script>
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/OrbitControls.js"></script>
+<script src="assets/vendor/GLTFLoader.js"></script>
+<script src="assets/vendor/RoomEnvironment.js"></script>
+<script>
+(function () {
+  var K = KAT, st = { dn: '', kn: '', fn: '', g: '' };
+  function filterHtml() {
+    var U = KATUI, opt = function (v, t, cur) { return '<option value="' + v + '"' + (String(v) === String(cur) ? ' selected' : '') + '>' + U.esc(t) + '</option>'; };
+    return '<div class="filter"><label>Наружный диаметр Dн, мм<select id="f-dn">' + opt('', 'любой', st.dn) + K.dns.map(function (d) { return opt(d, d, st.dn); }).join('') + '</select></label>' +
+      '<label>Нагрузка не менее, кН<input id="f-kn" type="number" min="0" placeholder="например, 50" value="' + st.kn + '"></label>' +
+      '<label>Назначение<select id="f-fn">' + opt('', 'любое', st.fn) + U.FNS.map(function (f) { return opt(f[0], f[2], st.fn); }).join('') + '</select></label>' +
+      '<label>Раздел<select id="f-g">' + opt('', 'все разделы', st.g) + K.groups.filter(function (g) { return g.cats; }).map(function (g) { return opt(g.id, g.n + '. ' + g.title.replace(/\s*\(.*$/, ''), st.g); }).join('') + '</select></label><span class="res" id="f-n"></span></div><div id="f-out" style="margin-top:10px"></div>';
+  }
+  function runFilter() {
+    var U = KATUI, out = document.getElementById('f-out'), n = document.getElementById('f-n'); if (!out) return;
+    ['dn', 'kn', 'fn', 'g'].forEach(function (k) { st[k] = document.getElementById('f-' + k).value; });
+    if (!st.dn && !st.kn && !st.fn && !st.g) { out.innerHTML = ''; n.textContent = 'Задайте диаметр, нагрузку или назначение'; return; }
+    if (!st.dn && !st.kn) {
+      var cs = K.cats.filter(function (c) { return (!st.fn || c.fn === st.fn) && (!st.g || c.g === st.g); });
+      n.textContent = 'Найдено типов: ' + cs.length; out.innerHTML = U.rows(cs); return;
+    }
+    U.find({ dn: st.dn, kn: parseFloat(st.kn) || 0, fn: st.fn, g: st.g }, function (rows) { n.textContent = 'Найдено исполнений: ' + rows.length; out.innerHTML = U.itemRows(rows, 80); });
+  }
+  document.addEventListener('input', function (e) { if (e.target.closest && e.target.closest('.filter')) runFilter(); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var sg = document.getElementById('side-groups'); if (!sg) return;
+    sg.innerHTML = K.groups.filter(function (g) { return g.cats; }).map(function (g) {
+      return '<a class="n" style="--c:' + g.color + '" href="#/g/' + g.id + '" data-nav="' + g.id + '"><b>' + g.n + '</b>' + g.title.replace(/\s*\(.*$/, '') + '<small>' + g.cats + ' типов · ' + g.items + ' исп.' + (g.m ? ' · 3D' : '') + '</small></a><div class="sub">' +
+        KATUI.catsOf(g.id).map(function (c) { return '<a href="#/c/' + c.slug + '" data-nav="' + c.slug + '"><b>' + c.sec + '</b>' + KATUI.esc(c.code) + '</a>'; }).join('') + '</div>';
+    }).join('');
+  });
+  function pg(t) { var n = document.getElementById('pg'); if (n) n.textContent = t; }
+  window.VARIANT = {
+    id: 'spravochnik',
+    onRoute: function (p) {
+      var U = KATUI, g = p[0] === 'g' && U.groupBy(p[1]);
+      if (g) pg('Раздел ' + g.n); else if (p[0] === 'faq') pg('Вопросы'); else if (p[0] === 'glossary') pg('Словарь'); else if (p[0] === 'spec') pg('Заявка');
+      var on = document.querySelector('.side .sub a.on'); if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest' });
+    },
+    home: function (el) {
+      var U = KATUI; pg('Раздел 0 · Подбор');
+      el.innerHTML = '<div class="in"><div class="kicker">СПРАВОЧНИК · ' + K.total.cats + ' ТИПОВ · ' + K.total.items + ' ИСПОЛНЕНИЙ</div><h1>Опоры трубопроводов: подбор по диаметру и нагрузке</h1>' +
+        '<p class="lead">Задайте наружный диаметр трубы и нагрузку — справочник покажет подходящие исполнения. Или найдите ячейку в матрице «тип × Dн».</p>' +
+        '<div class="sec"><h2><b>0.1</b>Фильтр по параметрам</h2>' + filterHtml() + '</div>' +
+        K.matrix.map(function (m, i) { return '<div class="sec"><h2><b>0.' + (i + 2) + '</b>Матрица подбора: ' + U.esc(m.title.replace(/\s*\(.*$/, '').toLowerCase()) + '</h2>' + U.matrix(m) + '</div>'; }).join('') +
+        '<div class="sec"><h2><b>0.' + (K.matrix.length + 2) + '</b>Задача — тип опоры</h2>' + U.tasks() + '</div>' +
+        '<div class="sec"><h2><b>0.' + (K.matrix.length + 3) + '</b>Разделы каталога</h2>' + U.groups() + '</div></div>';
+      runFilter();
+    },
+    card: function (c, it) {
+      var U = KATUI, s = c.sec, n = 0, sec = function (t, body) { return body ? '<div class="sec"' + (n ? '' : ' style="margin-top:0"') + '><h2><b>' + s + '.' + (++n) + '</b>' + t + '</h2>' + body + '</div>' : ''; };
+      pg('Раздел ' + s + ' · ' + c.code);
+      return '<div class="in"><div class="kicker"><i style="background:' + c.color + '"></i>РАЗДЕЛ ' + s + ' · ' + U.esc(c.std.toUpperCase()) + '</div>' +
+        '<div class="c-topline"><div><h1>' + U.esc(c.code) + '. ' + U.esc(c.title) + '</h1><p class="lead" style="font-size:15px;margin-bottom:0">' + U.esc(c.text.lead) + '</p></div>' + U.loadsLegend(c) + '</div>' +
+        '<div class="c-grid"><div>' + sec('Таблица исполнений', U.table(c, it)) + sec('Габаритная схема', U.schema(c)) + sec('Применение и монтаж', U.about(c)) + sec('Связанные позиции', U.related(c)) + (U.PRINT ? '' : sec('Частые вопросы', U.faqFor(c))) +
+        '</div><div class="c-right">' + U.order(c, it) + U.viewer(c, it) + U.files(c, it) + '<div>' + U.facts(c) + '</div>' + U.kit(c) + '</div></div></div>';
+    }
+  };
+})();
+</script>
+<script src="kat.js?v=2610112245"></script>
+</body>
+</html>

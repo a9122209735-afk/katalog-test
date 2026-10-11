@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="ПБ">
+  <!-- Знак отдельно: для колонтитулов, значка вкладки и углов страниц -->
+  <polygon points="116,60 88,108.5 32,108.5 4,60 32,11.5 88,11.5" fill="#12324A"/>
+  <path d="M30 84V38H54V84" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="miter"/>
+  <path d="M94 38H68V84H82A12.5 12.5 0 0 0 82 59H68" fill="none" stroke="#F26A21" stroke-width="9" stroke-linejoin="miter"/>
+</svg>

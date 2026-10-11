@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Каталог ПРОМБУРГ: опоры, детали трубопроводов, компенсаторы — атлас</title>
+<meta name="description" content="Каталог ООО «ПРОМБУРГ»: опоры трубопроводов, детали трубопроводов, компенсаторы. 3D-модели, размеры, нагрузки, цены деталей, обозначения для заказа.">
+<link rel="icon" href="assets/brand/logo-mark.svg">
+<link rel="stylesheet" href="kat.css?v=2610112245">
+<style>
+/* Вид «Атлас»: вход по виду изделия. Светлый фон, графит, один акцент. */
+:root{--font:'Segoe UI',Inter,Arial,sans-serif;--mono:Consolas,'Cascadia Mono',monospace;
+  --bg:#F5F4F1;--panel:#FFFFFF;--ink:#1E2328;--mute:#6A7178;--line:#E4E1DB;--line-2:#C9C5BC;
+  --acc:#F26A21;--acc-ink:#FFFFFF;--link:#B8480C;--sel:#FFF3EA;--load:#FFF8F2;--th:#1E2328;--th-ink:#FFFFFF;
+  --stage:radial-gradient(ellipse at 50% 40%,#FFFFFF 0%,#F1EFEB 75%,#E6E3DD 100%);
+  --logo-bg:#1E2328;--logo-fg:#FFFFFF;--radius:10px;--cover:#1E2328;--cover-ink:#FFFFFF}
+.top{position:sticky;top:0;z-index:20;background:rgba(245,244,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.top nav{display:flex;gap:4px}
+.top nav a{padding:7px 12px;border-radius:99px;text-decoration:none;font-weight:600;font-size:14px;color:var(--mute)}
+.top nav a:hover,.top nav a.on{background:var(--ink);color:#fff}
+.top .search{margin-left:auto}
+.hero{padding:50px 0 26px}
+.hero h1{font-size:50px;max-width:820px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .lead{font-size:19px;margin-top:16px}
+.stats{display:flex;gap:36px;margin-top:26px;flex-wrap:wrap}
+.stats b{display:block;font-size:30px;line-height:1}
+.stats span{font-size:13px;color:var(--mute)}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.jump a{padding:6px 12px;border:1px solid var(--line-2);border-radius:99px;font-size:13px;text-decoration:none;background:var(--panel)}
+.jump a:hover{border-color:var(--ink)}
+.jump a b{font-family:var(--mono);margin-right:6px}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin:44px 0 6px;flex-wrap:wrap}
+.sec-h h2{font-size:24px}
+.sec-h .n{font-family:var(--mono);font-weight:700;font-size:14px}
+.sec-h a{margin-left:auto;color:var(--link);font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.sec-p{color:var(--mute);font-size:14.5px;max-width:820px;margin:0 0 16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:99px;background:var(--acc);color:#fff;font-weight:700;margin-bottom:10px}
+.step b{display:block;font-size:16px;margin-bottom:4px}
+.step p{margin:0;font-size:14px;color:var(--mute)}
+/* карточка */
+.crumbs{font-size:13px;color:var(--mute);padding:20px 0 0}
+.crumbs a{color:var(--link);text-decoration:none}
+.c-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:10px 0 20px}
+.c-head h1{font-size:34px}
+.c-code{display:inline-block;font-family:var(--mono);font-weight:700;color:#fff;padding:4px 12px;border-radius:99px;font-size:14px;margin-bottom:10px}
+.c-main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,1fr);gap:20px;align-items:stretch}
+.c-main .v3d{min-height:470px}
+.c-side{display:flex;flex-direction:column;gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.c-sec{margin-top:30px}
+.c-sec:empty{display:none}
+.c-two{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+.c-two.one{grid-template-columns:1fr}
+body.print .c-main,body.print .c-two{grid-template-columns:1fr 1fr;gap:12px}
+body.print .c-head{padding:0 0 8px}
+body.print .c-head h1{font-size:18pt}
+body.print .c-sec{margin-top:10px}
+body.print .crumbs,body.print .files{display:none}
+@media(max-width:900px){.c-main,.c-two,.steps{grid-template-columns:1fr}.hero h1{font-size:34px}.top nav{display:none}.c-head{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span data-ui="logo"></span>
+  <nav><a href="#/" data-nav="home">Атлас</a><a href="#/faq" data-nav="faq">Вопросы</a><a href="#/glossary" data-nav="glossary">Словарь</a></nav>
+  <span data-ui="search"></span><span data-ui="views"></span><span data-ui="specBtn"></span>
+</div></header>
+<main id="view"></main>
+<noscript><p style="padding:20px">Каталог работает со скриптами. Без них доступен <a href="t/index.html">список всех типов с таблицами исполнений</a>.</p></noscript>
+<footer class="site-foot"><div class="wrap"><span data-ui="contacts"></span></div></footer>
+
+<script src="data/index.js?v=2610112245"></script>
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/OrbitControls.js"></script>
+<script src="assets/vendor/GLTFLoader.js"></script>
+<script src="assets/vendor/RoomEnvironment.js"></script>
+<script>
+window.VARIANT = {
+  id: 'atlas',
+  home: function (el) {
+    var K = KAT, U = KATUI, gs = K.groups.filter(function (g) { return g.cats; });
+    el.innerHTML = '<div class="wrap"><section class="hero">' +
+      '<h1>Опоры трубопроводов. <em>Найдите по виду</em> — получите размеры, нагрузки и строку для заявки</h1>' +
+      '<p class="lead">Каждая позиция — с таблицей исполнений, кодом для заказа и готовой строкой в заявку. У опор тепловых сетей — вращаемые 3D-модели и габаритные схемы.</p>' +
+      '<div class="stats"><div><b>' + gs.length + '</b><span>разделов каталога</span></div><div><b>' + K.total.cats + '</b><span>типов опор и подвесок</span></div><div><b>' + K.total.items.toLocaleString('ru-RU') + '</b><span>исполнений</span></div><div><b>' + K.total.models + '</b><span>3D-моделей</span></div><div><b>Dн ' + K.total.dn[0] + '–' + K.total.dn[1] + '</b><span>диапазон труб, мм</span></div></div></section>' +
+      '<div class="jump">' + gs.map(function (g) { return '<a href="#/g/' + g.id + '"><b style="color:' + g.color + '">' + (g.n < 10 ? '0' : '') + g.n + '</b>' + U.esc(g.title.replace(/\s*\(.*$/, '')) + '</a>'; }).join('') + '</div>' +
+      gs.map(function (g) {
+        var cs = U.catsOf(g.id).slice().sort(function (a, b) { return (b.m ? 1 : 0) - (a.m ? 1 : 0); });   // на главной первыми идут типы с 3D
+        return '<div class="sec-h"><span class="n" style="color:' + g.color + '">' + (g.n < 10 ? '0' : '') + g.n + '</span><h2>' + U.esc(g.title) + '</h2>' + (cs.length > 3 ? '<a href="#/g/' + g.id + '">Все ' + cs.length + ' типов раздела</a>' : '') + '</div><p class="sec-p">' + U.esc(g.short) + '</p>' + U.tiles(cs.slice(0, 3));
+      }).join('') +
+      '<div class="sec-h"><h2>Как выбрать за три шага</h2></div><div class="steps"><div class="step"><b>Что должна делать опора</b><p>Держать трубу жёстко, дать ей скользить, направить вдоль оси или подвесить.</p></div><div class="step"><b>Диаметр и нагрузка</b><p>Наружный диаметр Dн, стенка трубы и расчётные силы из проекта.</p></div><div class="step"><b>Исполнение</b><p>Строка таблицы: высота, длина, нагрузка. Готовое обозначение копируется в заявку.</p></div></div>' +
+      '<div class="sec-h"><h2>Задача — тип опоры</h2></div>' + U.tasks() + '</div>';
+  },
+  card: function (c, it) {
+    var U = KATUI, P = U.PRINT, g = U.groupBy(c.g), sch = U.schema(c), side = U.kit(c) + U.related(c);
+    return '<div class="wrap"><div class="crumbs"><a href="#/">Атлас</a> / <a href="#/g/' + g.id + '">' + U.esc(g.title) + '</a> / ' + U.esc(c.code) + '</div>' +
+      '<div class="c-head"><div><span class="c-code" style="background:' + c.color + '">' + U.esc(c.code) + '</span><h1>' + U.esc(c.title) + '</h1><p class="lead">' + U.esc(c.text.lead) + '</p></div>' + U.loadsLegend(c) + '</div>' +
+      '<div class="c-main">' + U.viewer(c, it) + '<div class="c-side"><div class="box">' + U.facts(c) + '</div>' + U.order(c, it) + (P ? '' : '<div class="box">' + U.files(c, it) + '</div>') + '</div></div>' +
+      '<div class="c-sec">' + U.about(c) + '</div>' +
+      (sch || side ? '<div class="c-sec c-two' + (sch && side ? '' : ' one') + '">' + (sch ? '<div><h4>Габаритная схема</h4>' + sch + '</div>' : '') + (side ? '<div>' + U.kit(c) + '<div style="margin-top:' + (c.text.kit ? 22 : 0) + 'px">' + U.related(c) + '</div></div>' : '') + '</div>' : '') +
+      '<div class="c-sec"><h4>Таблица исполнений' + (c.m && !P ? ' — нажмите строку, чтобы увидеть модель' : '') + '</h4>' + U.table(c, it) + '</div>' +
+      (P ? '' : '<div class="c-sec">' + U.faqFor(c) + '</div>') + '</div>';
+  }
+};
+</script>
+<script src="kat.js?v=2610112245"></script>
+</body>
+</html>

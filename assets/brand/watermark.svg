@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" width="360" height="220">
+  <!-- Плитка водяного знака: шестигранник ПБ и название; повторяется сеткой, поворот и прозрачность задаются в CSS -->
+  <defs>
+    <g id="pb">
+      <polygon points="116,60 88,108.5 32,108.5 4,60 32,11.5 88,11.5" fill="#12324A"/>
+      <path d="M30 84V38H54V84" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+      <path d="M94 38H68V84H82A12.5 12.5 0 0 0 82 59H68" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+    </g>
+  </defs>
+  <use href="#pb" transform="translate(18 28) scale(.42)"/>
+  <text x="78" y="64" font-family="'Segoe UI','Arial',sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#12324A">ПРОМБУРГ</text>
+  <use href="#pb" transform="translate(198 138) scale(.42)"/>
+  <text x="20" y="174" font-family="'Segoe UI','Arial',sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#12324A">ПРОМБУРГ</text>
+</svg>
