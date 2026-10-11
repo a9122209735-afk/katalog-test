@@ -354,7 +354,7 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
     return '<details class="faq-i" id="' + (PRINT ? href('/faq/' + f.id).slice(1) : 'faq-' + f.id) + '"' + (open || PRINT ? ' open' : '') + '><summary><span class="who" title="П — чаще спрашивает проектировщик, З — закупщик">' + f.who + '</span>' + esc(f.q) + '</summary><p>' + linkify(f.a) + '</p></details>';
   };
   // вопросы карточки: заданные в тексте категории либо общий набор по функции опоры
-  var KONSTR_CODES = ['СКУМИ', 'ТС-670', 'ТС-671', 'ТС-666', 'ТС-667', 'ТС-661', 'ТС-664', 'ТС-623', 'ТС-624'];   // изделия, из которых собирает узел конструктор (konstruktor.html)
+  var KONSTR_CODES = ['СКУМИ', 'ТС-670', 'ТС-671', 'ТС-666', 'ТС-667', 'ТС-661', 'ТС-664', 'ТС-760', 'ТС-623', 'ТС-624'];   // изделия, из которых собирает узел конструктор (konstruktor.html)
   var FAQ_FN = { nepodvizhnaya: [1, 2, 7, 9, 11, 30], shchitovaya: [1, 2, 8, 9, 11, 30], skolzyashchaya: [1, 4, 7, 13, 22, 36], katkovaya: [1, 4, 7, 13, 22, 36], napravlyayushchaya: [1, 7, 13, 22, 36], podvesnaya: [7, 10, 22, 26, 36], prochee: [7, 22, 26, 36], detali: [211, 203, 207, 212, 36], kompensator: [104, 101, 102, 114, 115, 110, 36] };
   ui.faqFor = function (cat) {
     var ids = cat.text.faq || FAQ_FN[cat.fn] || [];
