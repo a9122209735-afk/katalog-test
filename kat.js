@@ -56,6 +56,30 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
 
   /* ---------- догрузка данных ---------- */
   function script(src, ok, fail) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail || function () {}; document.head.appendChild(s); }
+  /* Кнопка «Заказать»: адрес карточки в магазине сайта берётся из karta-magazina.js (лежит только на сайте, в комплект не входит):
+     window.PB_MAGAZIN = {baza, kat: {slug категории: путь раздела}, t: {код ПБ: хвост адреса или полный путь от baza}}.
+     Без файла или без кода в нём кнопки нет — локальная копия и PDF работают как раньше. Чужой адрес в baza не принимается */
+  var MAG = null, MAG_OK = ['https://promburg.ru/', 'https://www.promburg.ru/'];
+  function magUrl(slug, pb) {
+    var t = MAG && MAG.t[pb];
+    if (!t || typeof t !== 'string') return '';
+    if (t.indexOf('/') >= 0) return MAG.baza + t;
+    return MAG.kat[slug] ? MAG.baza + MAG.kat[slug] + '/' + t : '';
+  }
+  function magFill() {
+    $$('a[data-mag]').forEach(function (a) {
+      var u = magUrl(a.getAttribute('data-slug'), a.getAttribute('data-mag')), act = a.parentNode, x;
+      if (!u) return;
+      a.href = u; a.style.display = '';
+      if ((x = act.querySelector('[data-add]'))) x.classList.remove('acc');
+      if ((x = act.querySelector('[data-sh]'))) x.style.display = 'none';
+    });
+  }
+  function magSet(m) {
+    MAG = m && typeof m === 'object' && MAG_OK.indexOf(m.baza) >= 0 && m.t && m.kat ? m : null;
+    if (MAG) magFill();
+    return !!MAG;
+  }
   function loadCat(slug, cb) { if (window.KATC[slug]) return cb(window.KATC[slug]); script('data/c/' + slug + '.js?v=' + K.v, function () { cb(window.KATC[slug]); }); }
   var itemsWait = null;
   function loadItems(cb) {
@@ -200,6 +224,7 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
 
   /* ---------- блоки карточки ---------- */
   var ui = {};
+  ui.magazin = magSet;
   ui.viewer = function (cat, item) {
     if (!item.model) {
       if (cat.png) return '<div class="v3d nomodel tip' + (PRINT ? ' print' : '') + '" data-slot="viewer"><img class="v3d-tip" src="' + ASSETS + cat.png + '" alt=""><span class="wm"></span>' +
@@ -286,6 +311,7 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
     var dns = []; cat.items.forEach(function (i) { if (i.dn != null && dns.indexOf(i.dn) < 0) dns.push(i.dn); });
     var same = sameDn(cat, item), full = fullName(cat, item) + (stdOrd(cat) ? ', ' + stdOrd(cat) : '');
     var pick = '';
+    var mag = PRINT ? '' : magUrl(cat.slug, item.pb);
     if (!PRINT && stupeni(cat)) pick = stupPick(cat, item);
     else if (!PRINT) {
       pick = '<div class="order-pick">' + (dns.length > 1 ? '<label>Dн, мм<select data-pick="dn">' + dns.map(function (d) { return '<option' + (d === item.dn ? ' selected' : '') + '>' + esc(d) + '</option>'; }).join('') + '</select></label>' : '') +
@@ -297,8 +323,9 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
       (item.v.price != null && !PRINT ? '<div class="order-price"><b>' + rub(item.v.price) + ' ₽</b><span>цена магазина promburg.ru' + (item.sh && item.sh[2] ? ', артикул ' + esc(item.sh[2]) : '') + '</span></div>' : '') +
       (!PRINT && K.resh && K.resh[item.pb] ? K.resh[item.pb].map(function (r) { return '<a class="resh" href="' + esc(r[1]) + '"><b>Типовое решение узла с этим изделием</b><span>' + esc(r[0].replace(/^Типовое решение узла:\s*/, '')) + '</span></a>'; }).join('') : '') +
       (!PRINT && KONSTR_CODES.indexOf(cat.code) >= 0 ? '<a class="resh konstr" href="konstruktor.html?pb=' + encodeURIComponent(item.pb) + '"><b>Собрать узел с этим изделием</b><span>Конструктор подберёт компенсатор и опоры на участок по вашим данным и покажет спецификацию</span></a>' : '') +
-      (PRINT ? '' : '<div class="order-act"><button class="btn" data-copy="' + esc(full + ', код ' + item.pb) + '">Скопировать</button><button class="btn acc" data-add="' + item.pb + '">В заявку</button>' +
-        (item.sh && item.sh[0] ? '<a class="btn" href="' + esc(item.sh[0]) + '" target="_blank" rel="noopener">Купить в магазине</a>' : '') + '</div>') + '</div>';
+      (PRINT ? '' : '<div class="order-act">' + (mag ? '<a class="btn acc" data-mag="' + item.pb + '" data-slug="' + cat.slug + '" href="' + esc(mag) + '">Заказать</a>' : '<a class="btn acc" data-mag="' + item.pb + '" data-slug="' + cat.slug + '" style="display:none">Заказать</a>') +
+        '<button class="btn" data-copy="' + esc(full + ', код ' + item.pb) + '">Скопировать</button><button class="btn' + (mag ? '' : ' acc') + '" data-add="' + item.pb + '">В заявку</button>' +
+        (item.sh && item.sh[0] && !mag ? '<a class="btn" data-sh href="' + esc(item.sh[0]) + '" target="_blank" rel="noopener">Купить в магазине</a>' : '') + '</div>') + '</div>';
   };
   ui.files = function (cat, item) {
     var h = '<div class="files" data-slot="files"><h4>Файлы исполнения ' + esc(item.des) + '</h4>';
@@ -735,6 +762,7 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
   document.addEventListener('DOMContentLoaded', function () {
     if (PRINT) return script('data/all.js?v=' + K.v, renderPrint);
     view = $('#view');
+    script('karta-magazina.js?d=' + new Date().toISOString().slice(0, 10), function () { magSet(window.PB_MAGAZIN); });
     document.addEventListener('click', onClick); document.addEventListener('change', onChange); document.addEventListener('input', onSearch);
     window.addEventListener('hashchange', route);
     document.addEventListener('keydown', onSearchKey);
