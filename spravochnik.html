@@ -7,7 +7,7 @@
 <title>Каталог ПРОМБУРГ: опоры, детали трубопроводов, компенсаторы — справочник инженера</title>
 <meta name="description" content="Справочник ООО «ПРОМБУРГ»: подбор опор, деталей трубопроводов и компенсаторов по наружному диаметру и нагрузке, таблицы исполнений, 3D-модели.">
 <link rel="icon" href="assets/brand/logo-mark.svg">
-<link rel="stylesheet" href="kat.css?v=2610120115">
+<link rel="stylesheet" href="kat.css?v=2610121246">
 <style>
 /* Вид «Справочник инженера»: вход по параметрам. Белый, тёмно-синий, плотная вёрстка, нумерованные разделы. */
 :root{--font:'Segoe UI','IBM Plex Sans',Arial,sans-serif;--mono:Consolas,'Cascadia Mono',monospace;
@@ -64,6 +64,8 @@ body.print .tbl td,body.print .tbl th{padding:3px 4px}
 body.print .tbl .pb{font-size:7pt}
 body.print .in,body.print .page{padding:0;max-width:none}
 body.print .sec{margin-top:10px}
+body.print .sch-wide{margin-bottom:10px}
+body.print .sch-wide .schema-img img{max-height:66mm}
 body.print .files{display:none}
 @media(max-width:1000px){body{display:block}.side{position:static;height:auto;max-height:46vh}.c-grid{grid-template-columns:1fr}.c-right{position:static}.c-topline{flex-direction:column}}
 </style>
@@ -87,7 +89,7 @@ body.print .files{display:none}
   <div class="in"><span data-ui="contacts"></span></div>
 </div>
 
-<script src="data/index.js?v=2610120115"></script>
+<script src="data/index.js?v=2610121246"></script>
 <script src="assets/vendor/three.min.js"></script>
 <script src="assets/vendor/OrbitControls.js"></script>
 <script src="assets/vendor/GLTFLoader.js"></script>
@@ -141,14 +143,16 @@ body.print .files{display:none}
     card: function (c, it) {
       var U = KATUI, s = c.sec, n = 0, sec = function (t, body) { return body ? '<div class="sec"' + (n ? '' : ' style="margin-top:0"') + '><h2><b>' + s + '.' + (++n) + '</b>' + t + '</h2>' + body + '</div>' : ''; };
       pg('Раздел ' + s + ' · ' + c.code);
+      var sch = U.schema(c), wide = U.schemaWide(c);   /* схема над обеими колонками */
       return '<div class="in"><div class="kicker"><i style="background:' + c.color + '"></i>РАЗДЕЛ ' + s + ' · ' + U.esc(c.std.toUpperCase()) + '</div>' +
         '<div class="c-topline"><div><h1>' + U.esc(c.code) + '. ' + U.esc(c.title) + '</h1><p class="lead" style="font-size:15px;margin-bottom:0">' + U.esc(c.text.lead) + '</p></div>' + U.loadsLegend(c) + '</div>' +
-        '<div class="c-grid"><div>' + sec('Таблица исполнений', U.table(c, it)) + sec('Габаритная схема', U.schema(c)) + sec('Применение и монтаж', U.about(c)) + sec('Связанные позиции', U.related(c)) + (U.PRINT ? '' : sec('Частые вопросы', U.faqFor(c))) +
+        (wide ? '<div class="sch-wide">' + sec('Габаритная схема', sch) + '</div>' : '') +
+        '<div class="c-grid"><div>' + sec('Таблица исполнений', U.table(c, it)) + (wide ? '' : sec('Габаритная схема', sch)) + sec('Применение и монтаж', U.about(c)) + sec('Связанные позиции', U.related(c)) + (U.PRINT ? '' : sec('Частые вопросы', U.faqFor(c))) +
         '</div><div class="c-right">' + U.order(c, it) + U.viewer(c, it) + U.files(c, it) + '<div>' + U.facts(c) + '</div>' + U.kit(c) + '</div></div></div>';
     }
   };
 })();
 </script>
-<script src="kat.js?v=2610120115"></script>
+<script src="kat.js?v=2610121246"></script>
 </body>
 </html>

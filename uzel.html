@@ -7,7 +7,7 @@
 <title>Каталог ПРОМБУРГ: опоры, детали трубопроводов, компенсаторы — узел трассы</title>
 <meta name="description" content="Подбор от задачи: схема трассы, назначение изделия, диаметр и нагрузка. Опоры, детали трубопроводов, компенсаторы ООО «ПРОМБУРГ».">
 <link rel="icon" href="assets/brand/logo-mark.svg">
-<link rel="stylesheet" href="kat.css?v=2610120115">
+<link rel="stylesheet" href="kat.css?v=2610121246">
 <style>
 /* Вид «Узел трассы»: вход от задачи. Тёмный фон, линейная графика, жёлтый акцент. */
 :root{--font:'Segoe UI',Inter,Arial,sans-serif;--mono:Consolas,'Cascadia Mono',monospace;
@@ -80,6 +80,7 @@ body.print .c-info{padding:10px;gap:8px}
 body.print .c-info h1{font-size:16pt}
 body.print .c-sec{margin-top:10px}
 body.print .c-two{gap:12px}
+body.print .c-two.one{grid-template-columns:1fr}
 @media(max-width:1000px){.wiz,.c-hero,.c-two{grid-template-columns:1fr}.hero h1{font-size:30px}.top nav{display:none}}
 </style>
 </head>
@@ -93,8 +94,8 @@ body.print .c-two{gap:12px}
 <noscript><p style="padding:20px">Каталог работает со скриптами. Без них доступен <a href="t/index.html">список всех типов с таблицами исполнений</a>.</p></noscript>
 <footer class="site-foot"><div class="wrap"><span data-ui="contacts"></span></div></footer>
 
-<script src="data/index.js?v=2610120115"></script>
-<script src="data/trassa.js?v=2610120115"></script>
+<script src="data/index.js?v=2610121246"></script>
+<script src="data/trassa.js?v=2610121246"></script>
 <script src="assets/vendor/three.min.js"></script>
 <script src="assets/vendor/OrbitControls.js"></script>
 <script src="assets/vendor/GLTFLoader.js"></script>
@@ -135,16 +136,17 @@ body.print .c-two{gap:12px}
       paint();
     },
     card: function (c, it) {
-      var U = KATUI, P = U.PRINT, g = U.groupBy(c.g), sch = U.schema(c);
+      var U = KATUI, P = U.PRINT, g = U.groupBy(c.g), sch = U.schema(c), wide = U.schemaWide(c);
       return '<div class="wrap"><div class="c-hero">' + U.viewer(c, it) + '<div class="c-info"><div><div class="c-code"><a href="#/g/' + g.id + '">' + U.esc(g.title.replace(/\s*\(.*$/, '').toUpperCase()) + '</a> · ' + U.esc(c.code) + '</div><h1>' + U.esc(c.title) + '</h1></div><p style="margin:0;color:var(--mute)">' + U.esc(c.text.lead) + '</p>' + U.loadsLegend(c) + U.order(c, it) + (P ? '' : U.files(c, it)) + '</div></div>' +
         '<div class="c-sec">' + U.about(c) + '</div>' +
         '<div class="c-sec"><h4>Таблица исполнений' + (c.m && !P ? ' — нажмите строку, чтобы увидеть модель' : '') + '</h4>' + U.table(c, it) + '</div>' +
-        '<div class="c-sec c-two">' + (sch ? '<div><h4>Габаритная схема</h4>' + sch + '</div>' : '') + '<div><div class="box">' + U.facts(c) + '</div><div style="margin-top:16px">' + U.kit(c) + '</div></div>' + (sch ? '' : '<div>' + U.related(c) + '</div>') + '</div>' +
+        (wide ? '<div class="c-sec sch-wide"><h4>Габаритная схема</h4>' + sch + '</div>' : '') +
+        '<div class="c-sec c-two' + (wide ? ' one' : '') + '">' + (sch && !wide ? '<div><h4>Габаритная схема</h4>' + sch + '</div>' : '') + '<div><div class="box">' + U.facts(c) + '</div><div style="margin-top:16px">' + U.kit(c) + '</div></div>' + (sch ? '' : '<div>' + U.related(c) + '</div>') + '</div>' +
         '<div class="c-sec c-two"><div>' + (P ? '' : U.faqFor(c)) + '</div><div>' + (sch ? U.related(c) : '') + '</div></div></div>';
     }
   };
 })();
 </script>
-<script src="kat.js?v=2610120115"></script>
+<script src="kat.js?v=2610121246"></script>
 </body>
 </html>

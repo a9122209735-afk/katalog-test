@@ -7,7 +7,7 @@
 <title>Каталог ПРОМБУРГ: опоры, детали трубопроводов, компенсаторы — атлас</title>
 <meta name="description" content="Каталог ООО «ПРОМБУРГ»: опоры трубопроводов, детали трубопроводов, компенсаторы. 3D-модели, размеры, нагрузки, цены деталей, обозначения для заказа.">
 <link rel="icon" href="assets/brand/logo-mark.svg">
-<link rel="stylesheet" href="kat.css?v=2610120115">
+<link rel="stylesheet" href="kat.css?v=2610121246">
 <style>
 /* Вид «Атлас»: вход по виду изделия. Светлый фон, графит, один акцент. */
 :root{--font:'Segoe UI',Inter,Arial,sans-serif;--mono:Consolas,'Cascadia Mono',monospace;
@@ -74,7 +74,7 @@ body.print .crumbs,body.print .files{display:none}
 <noscript><p style="padding:20px">Каталог работает со скриптами. Без них доступен <a href="t/index.html">список всех типов с таблицами исполнений</a>.</p></noscript>
 <footer class="site-foot"><div class="wrap"><span data-ui="contacts"></span></div></footer>
 
-<script src="data/index.js?v=2610120115"></script>
+<script src="data/index.js?v=2610121246"></script>
 <script src="assets/vendor/three.min.js"></script>
 <script src="assets/vendor/OrbitControls.js"></script>
 <script src="assets/vendor/GLTFLoader.js"></script>
@@ -97,17 +97,18 @@ window.VARIANT = {
       '<div class="sec-h"><h2>Задача — тип опоры</h2></div>' + U.tasks() + '</div>';
   },
   card: function (c, it) {
-    var U = KATUI, P = U.PRINT, g = U.groupBy(c.g), sch = U.schema(c), side = U.kit(c) + U.related(c);
+    var U = KATUI, P = U.PRINT, g = U.groupBy(c.g), sch = U.schema(c), side = U.kit(c) + U.related(c), wide = U.schemaWide(c);
     return '<div class="wrap"><div class="crumbs"><a href="#/">Атлас</a> / <a href="#/g/' + g.id + '">' + U.esc(g.title) + '</a> / ' + U.esc(c.code) + '</div>' +
       '<div class="c-head"><div><span class="c-code" style="background:' + c.color + '">' + U.esc(c.code) + '</span><h1>' + U.esc(c.title) + '</h1><p class="lead">' + U.esc(c.text.lead) + '</p></div>' + U.loadsLegend(c) + '</div>' +
       '<div class="c-main">' + U.viewer(c, it) + '<div class="c-side"><div class="box">' + U.facts(c) + '</div>' + U.order(c, it) + (P ? '' : '<div class="box">' + U.files(c, it) + '</div>') + '</div></div>' +
       '<div class="c-sec">' + U.about(c) + '</div>' +
-      (sch || side ? '<div class="c-sec c-two' + (sch && side ? '' : ' one') + '">' + (sch ? '<div><h4>Габаритная схема</h4>' + sch + '</div>' : '') + (side ? '<div>' + U.kit(c) + '<div style="margin-top:' + (c.text.kit ? 22 : 0) + 'px">' + U.related(c) + '</div></div>' : '') + '</div>' : '') +
+      (wide ? '<div class="c-sec sch-wide"><h4>Габаритная схема</h4>' + sch + '</div>' : '') +
+      (sch || side ? '<div class="c-sec c-two' + (sch && side && !wide ? '' : ' one') + '">' + (sch && !wide ? '<div><h4>Габаритная схема</h4>' + sch + '</div>' : '') + (side ? '<div>' + U.kit(c) + '<div style="margin-top:' + (c.text.kit ? 22 : 0) + 'px">' + U.related(c) + '</div></div>' : '') + '</div>' : '') +
       '<div class="c-sec"><h4>Таблица исполнений' + (c.m && !P ? ' — нажмите строку, чтобы увидеть модель' : '') + '</h4>' + U.table(c, it) + '</div>' +
       (P ? '' : '<div class="c-sec">' + U.faqFor(c) + '</div>') + '</div>';
   }
 };
 </script>
-<script src="kat.js?v=2610120115"></script>
+<script src="kat.js?v=2610121246"></script>
 </body>
 </html>

@@ -206,6 +206,7 @@ body.print .order-out code{font-size:8.5pt;padding:6px 8px}
 body.print .decode{font-size:7.5pt}
 body.print .about p{font-size:8.5pt}
 body.print .schema-img img{max-height:62mm}
+body.print .sch-wide .schema-img img{max-height:100mm}
 body.print .kit table{font-size:8.5pt}
 body.print .group{padding:8px}
 body.print .group h4{font-size:9pt}

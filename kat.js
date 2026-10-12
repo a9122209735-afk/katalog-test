@@ -307,6 +307,9 @@ function GB(s) { return (/^komp-(ks|kso|ksof)$/.test(s) ? '/katalog-test-gif-a/'
     if (!PRINT) h += '<a href="t/' + cat.slug + '.html">Страница типа</a>';
     return h + (item.box && !item.usl ? '<span>Габарит ' + item.box.join(' × ') + ' мм</span>' : '') + (!item.model && !cat.schema ? '<span>Модель и чертёж — по запросу</span>' : '') + '</div>';
   };
+  /* PDF: при таблице до 5 строк схема идёт на всю ширину листа. У ТС 732…748 вместо чертежа общий лист-таблица — его не растягиваем */
+  var SCHEMA_TABL = ['ТС-732', 'ТС-733', 'ТС-734', 'ТС-748'];
+  ui.schemaWide = function (cat) { return !!(PRINT && cat.schema && cat.items && cat.items.length <= 5 && SCHEMA_TABL.indexOf(cat.code) < 0); };
   ui.schema = function (cat) {
     if (!cat.schema) return '';
     return '<figure class="schema"><div class="schema-img"><img src="' + cat.schema + '" alt="Габаритная схема ' + esc(cat.code) + '"><span class="wm"></span></div>' + (cat.text.note ? '<figcaption>' + esc(cat.text.note) + '</figcaption>' : '') + '</figure>';
